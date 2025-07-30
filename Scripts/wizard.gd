@@ -1,39 +1,21 @@
 extends CharacterBody2D
 @export var speed = 400
-const back_dash_speed = 800
-var dash_time = 1
-var total_time = 0.0
-var back_pressed = 0
+const dash_dist = 50
 
 @onready var brick_scene = preload("res://Scenes/Brick.tscn")
 
 func get_input():
 	var input_direction = Input.get_vector("Left", "Right", "Up", "Down")
-	velocity = input_direction * speed
+	return input_direction 
 
 func _physics_process(_delta):
-	get_input()
+	velocity = get_input() * speed
 	if Input.is_action_just_pressed("Shoot"):
 		throw()
 	
 	if Input.is_action_just_pressed("Space"):
-		
-		if Input.is_action_pressed("Left"):
-			var x = -50
-			var y = 0
-			dash_roll(x, y)
-		elif Input.is_action_pressed("Right"):
-			var x = 50
-			var y = 0
-			dash_roll(x, y)
-		elif Input.is_action_pressed("Up"):
-			var x = 0
-			var y = -50
-			dash_roll(x, y)
-		else:
-			var x = 0
-			var y = 50
-			dash_roll(x, y)
+		var multiples = velocity.normalized()
+		dash_roll(multiples.x * dash_dist, multiples.y * dash_dist)
 				
 	move_and_slide()
 
