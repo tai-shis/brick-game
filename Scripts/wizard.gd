@@ -5,12 +5,16 @@ var dash_time = 1
 var total_time = 0.0
 var back_pressed = 0
 
+@onready var brick_scene = preload("res://Scenes/Brick.tscn")
+
 func get_input():
 	var input_direction = Input.get_vector("Left", "Right", "Up", "Down")
 	velocity = input_direction * speed
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	get_input()
+	if Input.is_action_just_pressed("Shoot"):
+		throw()
 	
 	if Input.is_action_just_pressed("Space"):
 		
@@ -36,3 +40,11 @@ func _physics_process(delta):
 func dash_roll(x , y):
 	var dash_vector = Vector2(x, y)
 	move_and_collide(dash_vector)
+	
+func throw():
+	var brick = brick_scene.instantiate()
+	brick.position = position
+	
+	brick.brick_direction = (position - get_global_mouse_position()).normalized()
+	
+	get_parent().add_child(brick)
