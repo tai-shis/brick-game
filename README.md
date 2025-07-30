@@ -1,0 +1,2 @@
+# brick-game
+THROW BRICK, BECOME MAGICAL
