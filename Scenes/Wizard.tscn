@@ -1,20 +1,21 @@
 [gd_scene load_steps=4 format=3 uid="uid://ce2iaqxbalar2"]
 
 [ext_resource type="Script" uid="uid://x43ks2o60pjg" path="res://Scripts/wizard.gd" id="1_mv8to"]
-[ext_resource type="Texture2D" uid="uid://2l8v63br14ei" path="res://icon.svg" id="2_tdv20"]
+[ext_resource type="Texture2D" uid="uid://b4qhpl7uw3xxr" path="res://aseprite/wizard.svg" id="2_mv8to"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_65sly"]
-size = Vector2(128, 130)
+size = Vector2(158, 188)
 
 [node name="Node2D" type="CharacterBody2D"]
 script = ExtResource("1_mv8to")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_tdv20")
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_mv8to")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 0.5)
+position = Vector2(-2.5, -2)
 scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_65sly")
 
