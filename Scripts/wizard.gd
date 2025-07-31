@@ -1,5 +1,9 @@
 extends CharacterBody2D
+
 @export var speed = 400
+@export var is_player = true
+@export var is_projectile = false
+
 const dash_dist = 50
 
 @onready var brick_scene = preload("res://Scenes/Brick.tscn")

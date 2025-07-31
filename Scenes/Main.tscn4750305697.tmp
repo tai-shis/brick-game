@@ -10,3 +10,4 @@ position = Vector2(-2, 646)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_idj7w")]
 position = Vector2(519, 356)
+is_projectile = null
