@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://crtgudxjugd5v"]
 
-[ext_resource type="Script" uid="uid://cnw8q2q26je5h" path="res://Scripts/enemy.gd" id="1_wovta"]
+[ext_resource type="Script" uid="uid://cnw8q2q26je5h" path="res://Scripts/goblin.gd" id="1_wovta"]
 [ext_resource type="Texture2D" uid="uid://2l8v63br14ei" path="res://icon.svg" id="2_xeo28"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wovta"]
@@ -12,7 +12,7 @@ size = Vector2(63, 64)
 [sub_resource type="CircleShape2D" id="CircleShape2D_xeo28"]
 radius = 50.04
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="Goblin" type="CharacterBody2D"]
 script = ExtResource("1_wovta")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

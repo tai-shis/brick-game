@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://nwb42xupabxw"]
+
+[ext_resource type="Script" uid="uid://duvpor81hsh1e" path="res://Scripts/warlock.gd" id="1_tl3mh"]
+[ext_resource type="Texture2D" uid="uid://2l8v63br14ei" path="res://icon.svg" id="2_lovwk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bbi8g"]
+radius = 1267.42
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jeci7"]
+size = Vector2(74, 42)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fl5k7"]
+radius = 57.0351
+
+[node name="Warlock" type="CharacterBody2D"]
+script = ExtResource("1_tl3mh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+skew = 0.872665
+texture = ExtResource("2_lovwk")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="pathing" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(0.5, 0.5)
+shape = SubResource("CircleShape2D_bbi8g")
+
+[node name="collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_jeci7")
+
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="hitbox"]
+shape = SubResource("CircleShape2D_fl5k7")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="hitbox" to="." method="_on_hitbox_body_entered"]
