@@ -19,6 +19,7 @@ func position_to_next_wave():
 	if current_nodes == starting_nodes:
 		if current_wave != 0:
 			Global.moving_to_next_wave = true
+		wave_spawn_ended = false
 		current_wave += 1
 		Global.current_wave = current_wave
 		prepare_spawn("Gob", 4.0, 4.0) #start with 4 goblins and mult by 4
@@ -44,15 +45,41 @@ func spawn_type(type, mob_spawn_rounds, mob_wait_time):
 				var gob1 = gob_scene.instantiate()
 				gob1.global_position = gob_spawn1.global_position
 				var gob2 = gob_scene.instantiate()
-				gob1.global_position = gob_spawn2.global_position
+				gob2.global_position = gob_spawn2.global_position
 				var gob3 = gob_scene.instantiate()
-				gob1.global_position = gob_spawn3.global_position
+				gob3.global_position = gob_spawn3.global_position
 				var gob4 = gob_scene.instantiate()
-				gob1.global_position = gob_spawn4.global_position
+				gob4.global_position = gob_spawn4.global_position
 				add_child(gob1)
 				add_child(gob2)
 				add_child(gob3)
 				add_child(gob4)
 				mob_spawn_rounds -= 1
 				await get_tree().create_timer(mob_wait_time)
-		wave_spawn_ended = true
+	elif type == "War":
+		var war_spawn1 = $WarlockSpawn1
+		var war_spawn2 = $WarlockSpawn2
+		var war_spawn3 = $WarlockSpawn3
+		var war_spawn4 = $WarlockSpawn4
+		if mob_spawn_rounds >= 1:
+			for i in mob_spawn_rounds:
+				var war1 = war_scene.instantiate()
+				war1.global_position = war_spawn1.global_position
+				var war2 = war_scene.instantiate()
+				war2.global_position = war_spawn2.global_position
+				var war3 = war_scene.instantiate()
+				war3.global_position = war_spawn3.global_position
+				var war4 = war_scene.instantiate()
+				war4.global_position = war_spawn4.global_position
+				add_child(war1)
+				add_child(war2)
+				add_child(war3)
+				add_child(war4)
+				mob_spawn_rounds -= 1
+				await get_tree().create_timer(mob_wait_time)
+	wave_spawn_ended = true
+	
+func _process(delta):
+	current_nodes = get_child_count() 
+	if wave_spawn_ended:
+		position_to_next_wave()
