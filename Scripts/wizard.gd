@@ -4,6 +4,8 @@ extends CharacterBody2D
 @export var is_player = true
 @export var is_projectile = false
 
+var experience = 0
+
 const dash_dist = 50
 
 @onready var brick_scene = preload("res://Scenes/Brick.tscn")
@@ -30,6 +32,7 @@ func dash_roll(x , y):
 func throw():
 	var brick = brick_scene.instantiate()
 	brick.position = position
+	brick.source = self
 	
 	brick.brick_direction = (position - get_global_mouse_position()).normalized()
 	

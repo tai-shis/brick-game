@@ -27,4 +27,6 @@ func _on_hitbox_body_entered(body: CharacterBody2D) -> void:
 		health -= body.damage
 		print(health)
 		if health <= 0:
+			body.source.experience += 100
+			print(body.source.experience)
 			queue_free()

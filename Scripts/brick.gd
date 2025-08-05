@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var damage = 10
 @export var is_player = false
 @export var is_projectile = true
+var source
 
 var speed = 700
 var brick_direction
