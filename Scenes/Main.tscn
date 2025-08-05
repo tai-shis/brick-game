@@ -1,16 +1,38 @@
-[gd_scene load_steps=4 format=3 uid="uid://cwv66hehwenas"]
+[gd_scene load_steps=5 format=3 uid="uid://cwv66hehwenas"]
 
 [ext_resource type="PackedScene" uid="uid://nwb42xupabxw" path="res://Scenes/Warlock.tscn" id="1_kln2b"]
 [ext_resource type="PackedScene" uid="uid://ce2iaqxbalar2" path="res://Scenes/Wizard.tscn" id="1_r150o"]
+[ext_resource type="Script" uid="uid://dp4a2m443p00v" path="res://Scripts/main.gd" id="1_rgh2o"]
 [ext_resource type="PackedScene" uid="uid://crtgudxjugd5v" path="res://Scenes/Goblin.tscn" id="2_idj7w"]
 
 [node name="Node2D" type="Node2D"]
-
-[node name="Warlock" parent="." instance=ExtResource("1_kln2b")]
-position = Vector2(1230, 240)
-
-[node name="Goblin" parent="." instance=ExtResource("2_idj7w")]
-position = Vector2(178, 180)
+script = ExtResource("1_rgh2o")
+gob_scene = ExtResource("2_idj7w")
+war_scene = ExtResource("1_kln2b")
 
 [node name="Wizard" parent="." instance=ExtResource("1_r150o")]
-position = Vector2(158, 575)
+position = Vector2(496, 375)
+
+[node name="GoblinSpawn1" type="Marker2D" parent="."]
+position = Vector2(487, 1059)
+
+[node name="GoblinSpawn2" type="Marker2D" parent="."]
+position = Vector2(1491, 435)
+
+[node name="GoblinSpawn3" type="Marker2D" parent="."]
+position = Vector2(497, -287)
+
+[node name="GoblinSpawn4" type="Marker2D" parent="."]
+position = Vector2(-501, 386)
+
+[node name="WarlockSpawn1" type="Marker2D" parent="."]
+position = Vector2(-459, 1080)
+
+[node name="WarlockSpawn2" type="Marker2D" parent="."]
+position = Vector2(-383, -325)
+
+[node name="WarlockSpawn3" type="Marker2D" parent="."]
+position = Vector2(1464, 1011)
+
+[node name="WarlockSpawn4" type="Marker2D" parent="."]
+position = Vector2(1505, -266)
