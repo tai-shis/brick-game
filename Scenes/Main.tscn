@@ -15,16 +15,16 @@ position = Vector2(496, 375)
 collision_mask = 1
 
 [node name="GoblinSpawn1" type="Marker2D" parent="."]
-position = Vector2(487, 1059)
+position = Vector2(494, 1037)
 
 [node name="GoblinSpawn2" type="Marker2D" parent="."]
-position = Vector2(1491, 435)
+position = Vector2(1481, 356)
 
 [node name="GoblinSpawn3" type="Marker2D" parent="."]
-position = Vector2(497, -287)
+position = Vector2(484, -312)
 
 [node name="GoblinSpawn4" type="Marker2D" parent="."]
-position = Vector2(-501, 386)
+position = Vector2(-479, 477)
 
 [node name="WarlockSpawn1" type="Marker2D" parent="."]
 position = Vector2(-459, 1080)

@@ -42,13 +42,13 @@ func spawn_type(type, mob_spawn_rounds, mob_wait_time):
 		if mob_spawn_rounds >= 1:
 			for i in mob_spawn_rounds:
 				var gob1 = gob_scene.instantiate()
-				gob1.global_position = gob_spawn1.global_postion
+				gob1.global_position = gob_spawn1.global_position
 				var gob2 = gob_scene.instantiate()
-				gob1.global_position = gob_spawn2.global_postion
+				gob1.global_position = gob_spawn2.global_position
 				var gob3 = gob_scene.instantiate()
-				gob1.global_position = gob_spawn3.global_postion
+				gob1.global_position = gob_spawn3.global_position
 				var gob4 = gob_scene.instantiate()
-				gob1.global_position = gob_spawn4.global_postion
+				gob1.global_position = gob_spawn4.global_position
 				add_child(gob1)
 				add_child(gob2)
 				add_child(gob3)
